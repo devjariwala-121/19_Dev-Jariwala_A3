@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <title>Employee List</title>
+</head>
+<body>
+    <h1>Employee List</h1>
+    <a href="/employees/add">Add Employee</a>
+    <br><br>
+    <table border="1">
+           <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Basic Salary</th>
+            <th>HRA</th>
+            <th>DA</th>
+            <th>Gross Salary</th>
+            <th>Actions</th>
+        </tr>
+        <% employees.forEach(employee=>{%>
+            <tr>
+                <td><%= employee.empid %></td>
+                <td><%= employee.name %></td>
+                <td><%= employee.email %></td>
+                <td><%= employee.department %></td>
+                <td><%= employee.basicSalary %></td>
+                <td><%= employee.hra %></td>
+                <td><%= employee.da %></td>
+                <td><%= employee.grossSalary %></td>
+                <td>
+                    <a href="/employees/edit/<%=employee._id%>">Edit</a>
+                    <a href="/employees/delete/<%=employee._id%>" onclick="return confirm('Delete Employee?')">Delete</a>
+                </td>
+            </tr>
+        <%})%>
+        <tr>
+        </tr>
+    </table>
+</br></br>
+<a href="/dashboard">Go To Dashboard</a>
+<a href="/logout">Logout</a>
+</body>
+</html>
